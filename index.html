@@ -369,48 +369,14 @@
 
     <script>
         function downloadConsent() {
-            const consentText = `To whom it may concern,
-Good day!
-
-This letter is to formally inform you that the following student(s) have been invited to participate in an official activity of the Programming Club. The scheduled session will include PSITE Orientation and Introduction to HTML & CSS. This activity will take place on November 18, 2025.
-
-1. __________________________
-2. __________________________
-
-By signing above, the parent/guardian grants permission for their child to join this activity and the activity is organized so that students with morning classes will attend the afternoon session, and students with afternoon classes will attend the morning session. This ensures that no class time will be missed.
-
-Thank you for supporting student-led academic and technical initiatives.
-
-Sincerely,
-John Victor DC Henson
-
-Prepared by:
-John Victor DC. Henson
-Code IS Club President
-
-Noted by:
-Ms. Shyna Abella                    Joedie Elocendo
-President, CODE Organization        V.P for External Affairs, CODE Organization
-
-Ms. Maylyn Torino                   Ms. Arianne Pangilinan
-External Adviser, CODE Organization External Adviser, CODE Organization
-
-Ms. Angel Orendain
-Internal Adviser, CODE Organization
-
-Approved by:
-Mr. Vergil Del Monte                Mr. Jonelle Angelo Cenita
-BSIS Assistant Program Head         BSIS Program Head`;
-
-            const blob = new Blob([consentText], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
+            // Create a link to the PDF file in the same directory
             const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Parent_Consent_Form_Nov18.txt';
+            a.href = 'Consent-Letter.pdf'; // PDF file in the same folder
+            a.download = 'Parent_Consent_Form_Nov18.pdf';
+            a.target = '_blank';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
             
             alert('Consent form downloaded! Please print, get it signed, and bring it on November 18.');
         }

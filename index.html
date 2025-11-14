@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Club Activity Invitation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .invitation-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '</>';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -20px;
+            right: 20px;
+            font-weight: bold;
+        }
+
+        .header-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .info-item:hover {
+            transform: translateX(5px);
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .icon i {
+            font-size: 18px;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .value {
+            font-size: 18px;
+            color: #212529;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .topics {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .topics h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-list li {
+            color: white;
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .topic-list li i {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            font-size: 16px;
+        }
+
+        .important-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .important-note h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .important-note h3 i {
+            font-size: 24px;
+        }
+
+        .important-note p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .download-section {
+            background: #e7f3ff;
+            border: 2px dashed #0066cc;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .download-section h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .footer strong {
+            color: #212529;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .footer-icon {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #667eea;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .value {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <div class="header">
+            <div class="header-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <h1>You're Invited!</h1>
+            <p>Programming Club Activity</p>
+        </div>
+
+        <div class="content">
+            <div class="info-section">
+                <div class="info-item">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <div class="label">Date</div>
+                        <div class="value">November 18, 2025 (Tuesday)</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <div class="label">Venue</div>
+                        <div class="value">Room 11</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-text">
+                        <div class="label">Schedule</div>
+                        <div class="value">Morning: Afternoon class students<br>Afternoon: Morning class students</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topics">
+                <h3>
+                    <i class="fas fa-book-open"></i>
+                    Session Topics
+                </h3>
+                <ul class="topic-list">
+                    <li><i class="fas fa-check-circle"></i>PSITE Orientation</li>
+                    <li><i class="fas fa-check-circle"></i>Introduction to HTML</li>
+                    <li><i class="fas fa-check-circle"></i>Introduction to CSS</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h3>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Important Reminder
+                </h3>
+                <p><strong>You must bring a printed copy of the Parent Consent Form.</strong> Download the form below, have it signed by your parent/guardian, and bring it on the day of the activity.</p>
+            </div>
+
+            <div class="download-section">
+                <h3>
+                    <i class="fas fa-file-alt"></i>
+                    Download Parent Consent Form
+                </h3>
+                <button class="download-btn" onclick="downloadConsent()">
+                    <i class="fas fa-download"></i>
+                    Download Consent Form
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>
+                <i class="fas fa-code"></i>
+                Code IS Club
+            </strong>
+            <div style="margin-top: 5px;">Organized by CODE Organization</div>
+            <div class="footer-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadConsent() {
+            const consentText = `To whom it may concern,
+Good day!
+
+This letter is to formally inform you that the following student(s) have been invited to participate in an official activity of the Programming Club. The scheduled session will include PSITE Orientation and Introduction to HTML & CSS. This activity will take place on November 18, 2025.
+
+1. __________________________
+2. __________________________
+
+By signing above, the parent/guardian grants permission for their child to join this activity and the activity is organized so that students with morning classes will attend the afternoon session, and students with afternoon classes will attend the morning session. This ensures that no class time will be missed.
+
+Thank you for supporting student-led academic and technical initiatives.
+
+Sincerely,
+John Victor DC Henson
+
+Prepared by:
+John Victor DC. Henson
+Code IS Club President
+
+Noted by:
+Ms. Shyna Abella                    Joedie Elocendo
+President, CODE Organization        V.P for External Affairs, CODE Organization
+
+Ms. Maylyn Torino                   Ms. Arianne Pangilinan
+External Adviser, CODE Organization External Adviser, CODE Organization
+
+Ms. Angel Orendain
+Internal Adviser, CODE Organization
+
+Approved by:
+Mr. Vergil Del Monte                Mr. Jonelle Angelo Cenita
+BSIS Assistant Program Head         BSIS Program Head`;
+
+            const blob = new Blob([consentText], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Parent_Consent_Form_Nov18.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('Consent form downloaded! Please print, get it signed, and bring it on November 18.');
+        }
+    </script>
+</body>
+</html>
